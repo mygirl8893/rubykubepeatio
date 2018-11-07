@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
 describe AccountingService do
 
   # 1. Create Asset for coin or fiat (credit), code: 102/101
@@ -28,4 +29,21 @@ describe AccountingService do
   # 2. Create Revenues for trading fees income (credit), code: 410
   # 3. Create locked Liability for minus unlock funds (debit), code: 212
 
+=======
+
+describe AccountingService do
+
+  let(:member) { create(:member) }
+  let(:amount) { 100.to_d }
+  let(:deposit) { create(:deposit_bct, member: member, amount: amount, currency: currency) }
+  let(:currency) { Currency.find(:btc) }
+
+  # 1. Create Asset for coin or fiat (credit), code: 102/101
+  # 2. Create main Liability for coin or fiat (credit), code: 202/201
+  subject { AccountingService.record_deposit(deposit) }
+
+  it 'create asset and liability records' do
+    # Check credit Asset and Liability for subject
+  end
+>>>>>>> Add new tables assets, expenses, revenues, liabilities and spec for them
 end
