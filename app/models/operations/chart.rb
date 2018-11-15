@@ -79,7 +79,7 @@ module Operations
 
     class << self
       def code_for(options)
-        CHART.select { |entry| entry.merge(options) == entry }
+        CHART.find { |entry| entry.merge(options) == entry }[:code]
       end
     end
   end
